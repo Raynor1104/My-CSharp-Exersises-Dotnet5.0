@@ -6,39 +6,66 @@ namespace Exersise3_W1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter first number: ");
-            int firstnumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Operation: ");
-            string? operation = Console.ReadLine();
-            Console.WriteLine("Enter second number: ");
-            int secondnumber = Convert.ToInt32(Console.ReadLine());;
-            int minus = firstnumber - secondnumber;
-            int plus = firstnumber + secondnumber;
-            int divide = firstnumber / secondnumber;
-            int multiple = firstnumber * secondnumber;
-            if (operation == "+" || operation == "-" || operation == "x" || operation == "/")
+            
+                Console.WriteLine("Enter first number: ");
+                int firstnumber = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Operation: ");
+                string? operation = Console.ReadLine();
+                Console.WriteLine("Enter second number: ");
+                int secondnumber = Convert.ToInt32(Console.ReadLine());
+            do 
             {
-                if (operation == "+") 
+                int result;
+            
+            switch (operation)
                 {
-                    Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {plus}");
+                    case "+":
+                        result = firstnumber + secondnumber;
+                        Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                        break;
+                    case "-":
+                        result = firstnumber - secondnumber;
+                        Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                        break;
+                    case "x":
+                        result = firstnumber * secondnumber;
+                        Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                        break;
+                    case "/":
+                        result = firstnumber / secondnumber;
+                        Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid operation, please type the correct operation.");
+                        operation = "\0";
+                        break;
                 }
-                if (operation == "-") 
-                {
-                    Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {minus}");
-                }
-                if (operation == "x") 
-                {
-                    Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {multiple}");
-                }
-                if (operation == "/") 
-                {
-                    Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {divide}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid operation");
-            }
+            } while (operation == "\0");
         }
     }
 }
+/*
+            if (operation == "+") 
+            {
+                result = firstnumber + secondnumber;
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+            }
+            else if (operation == "-") 
+            {
+                result = firstnumber - secondnumber;
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+            }
+            else if (operation == "x") 
+            {
+                result = firstnumber * secondnumber;
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+            }
+            else if (operation == "/") 
+            {
+                result = firstnumber / secondnumber;
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+            }
+            else 
+            {
+                Console.WriteLine("Invalid Operation");
+            } */
