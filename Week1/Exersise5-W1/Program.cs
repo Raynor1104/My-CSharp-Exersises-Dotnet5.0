@@ -13,7 +13,7 @@ namespace Exersise5_W1
             {
                 if (symbol.Length == 1)
                 {
-                    if (symbol == symbol.ToLower() && symbol == "u" || symbol == "e" || symbol == "o" || symbol == "a" || symbol == "i")
+                    if (symbol == symbol.ToLower() && (symbol == "u" || symbol == "e" || symbol == "o" || symbol == "a" || symbol == "i"))
                     {
                         Console.WriteLine("It's a lowercase vowel.");
                     } 
