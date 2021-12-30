@@ -7,20 +7,20 @@ namespace Exersise5_W1
         static void Main(string[] args)
         {
             char symbol;
-            Console.WriteLine("Enter a symbol: ");
+            Console.WriteLine("Enter a symbol: "); 
             symbol = Console.ReadKey().KeyChar;
     
             if (symbol == 'u' || symbol == 'e' || symbol == 'o' || symbol == 'a' || symbol == 'i')
-            {
-                Console.WriteLine("It's a lowercase vowel.");
+            { 
+                Console.WriteLine($" is a lowercase vowel.");
             }
             else if (symbol == '1' || symbol == '2' || symbol == '3' || symbol == '4' || symbol == '5' || symbol == '6' || symbol == '7' || symbol == '8' || symbol == '9')
             {
-                Console.WriteLine("It's a degit.");
+                Console.WriteLine(" is a degit.");
             }
             else
             {
-                Console.WriteLine("It's an other symbol.");
+                Console.WriteLine(" is an other symbol.");
             }
         }
     }
