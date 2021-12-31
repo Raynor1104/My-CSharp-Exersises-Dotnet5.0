@@ -13,27 +13,22 @@ namespace Exersise3_W1
             Console.WriteLine("Enter second number: ");
             int secondnumber = Convert.ToInt32(Console.ReadLine());
 
-            int result;
 
             if (operation == "+") 
             {
-                result = firstnumber + secondnumber;
-                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {firstnumber + secondnumber}");
             }
             else if (operation == "-") 
             {
-                result = firstnumber - secondnumber;
-                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {firstnumber - secondnumber}");
             }
             else if (operation == "x") 
             {
-                result = firstnumber * secondnumber;
-                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {firstnumber * secondnumber}");
             }
             else if (operation == "/") 
             {
-                result = firstnumber / secondnumber;
-                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
+                Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {firstnumber / secondnumber}");
             }
             else 
             {
