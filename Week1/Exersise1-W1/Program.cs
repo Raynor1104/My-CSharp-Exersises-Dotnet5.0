@@ -6,7 +6,6 @@ namespace Exersise1_W1
     {
         static void Main(string[] args)
         {
-            int days;
 
             Console.WriteLine("Enter year: ");
             int year = Convert.ToInt32(Console.ReadLine());
@@ -17,23 +16,19 @@ namespace Exersise1_W1
             {
                if (month == 2 && year % 4 == 0)
                 {
-                    days = 29;
-                    Console.WriteLine($"This month has {days} days");
+                    Console.WriteLine($"This month has {29} days");
                 }
                 else if (month == 2 && year % 4 != 0) 
                 {
-                    days = 28;
-                    Console.WriteLine($"This month has {days} days");
+                    Console.WriteLine($"This month has {28} days");
                 }
                 else if (month == 4 || month == 6 || month == 9 || month == 11)
                 {
-                    days = 30;
-                    Console.WriteLine($"This month has {days} days");
+                    Console.WriteLine($"This month has {30} days");
                 }
                 else 
                 {
-                    days = 31;
-                    Console.WriteLine($"This month has {days} days");
+                    Console.WriteLine($"This month has {31} days");
                 }
             }
             else
