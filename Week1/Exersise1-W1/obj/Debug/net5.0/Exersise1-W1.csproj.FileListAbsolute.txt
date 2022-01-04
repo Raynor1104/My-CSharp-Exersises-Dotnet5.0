@@ -1,5 +1,0 @@
-E:\Programing\CSharp exersises(.net5.0)\Week1\Exersise1-W1\obj\Debug\net5.0\Exersise1-W1.csproj.AssemblyReference.cache
-E:\Programing\CSharp exersises(.net5.0)\Week1\Exersise1-W1\obj\Debug\net5.0\Exersise1-W1.GeneratedMSBuildEditorConfig.editorconfig
-E:\Programing\CSharp exersises(.net5.0)\Week1\Exersise1-W1\obj\Debug\net5.0\Exersise1-W1.AssemblyInfoInputs.cache
-E:\Programing\CSharp exersises(.net5.0)\Week1\Exersise1-W1\obj\Debug\net5.0\Exersise1-W1.AssemblyInfo.cs
-E:\Programing\CSharp exersises(.net5.0)\Week1\Exersise1-W1\obj\Debug\net5.0\Exersise1-W1.csproj.CoreCompileInputs.cache
