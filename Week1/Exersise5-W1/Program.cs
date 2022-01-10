@@ -14,7 +14,7 @@ namespace Exersise5_W1
             { 
                 Console.WriteLine($" is a lowercase vowel.");
             }
-            else if ((symbol >= '0') && (symbol <= 9))
+            else if ((symbol >= '0') && (symbol <= '9'))
             {
                 Console.WriteLine(" is a degit.");
             }
