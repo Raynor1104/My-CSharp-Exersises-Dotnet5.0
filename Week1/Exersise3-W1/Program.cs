@@ -37,32 +37,3 @@ namespace Exersise3_W1
         }
     }
 }
-
-// do 
-            // {
-            //     int result;
-            
-            // switch (operation)
-            //     {
-            //         case "+":
-            //             result = firstnumber + secondnumber;
-            //             Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
-            //             break;
-            //         case "-":
-            //             result = firstnumber - secondnumber;
-            //             Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
-            //             break;
-            //         case "x":
-            //             result = firstnumber * secondnumber;
-            //             Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
-            //             break;
-            //         case "/":
-            //             result = firstnumber / secondnumber;
-            //             Console.WriteLine($"{firstnumber} {operation} {secondnumber} = {result}");
-            //             break;
-            //         default:
-            //             Console.WriteLine("Invalid operation, please type the correct operation.");
-            //             operation = "\0";
-            //             break;
-            //     }
-            // } while (operation == "\0");
