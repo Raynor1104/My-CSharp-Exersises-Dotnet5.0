@@ -7,10 +7,10 @@ namespace Exersise4_W1
         static void Main(string[] args)
         {
             Console.WriteLine("Enter radius of circle: ");
-            double RadiusOfCircle = Convert.ToDouble(Console.ReadLine());
+            double radiusCircle = Convert.ToDouble(Console.ReadLine());
             
-            double PerimeterOfCircle = RadiusOfCircle * 2 * Math.PI;
-            Console.WriteLine($"Perimeter of Circle: {PerimeterOfCircle}");
+            double perimeterCircle = radiusCircle * 2 * Math.PI;
+            Console.WriteLine($"Perimeter of Circle: {perimeterCircle}");
         }
     }
 }
