@@ -13,9 +13,10 @@ namespace Exersise2_W1
                 for (j = 1; j <=9; j++) 
                 {
                     int ji = j * i;
-                    Console.Write($"|{j} x {i} = {ji}\t");
+                    string Table = String.Format($"|{j} x {i,2}  = {ji,2}");
+                    Console.Write(Table);
                 }
-            Console.WriteLine();
+            Console.WriteLine("|");
             }
         }
     }
