@@ -84,7 +84,7 @@ namespace Exersise6_W2
 
         static void AscendingSort(int[] a, int n)
         {
-            Console.Write("Ascending Sort:\n");
+            Console.Write("\nAscending Sort:\n");
             int i, j;
             for (i = 0; i < n; i++)
             {
