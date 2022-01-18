@@ -71,31 +71,14 @@ namespace Exersise6_W2
             Console.Write("\nEnter new element: ");
             int newElement = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Enter position to insert this element: ");
-            int position = Convert.ToInt32(Console.ReadLine());
-
-            int[] b = new int[n + 1];
-
-            for (i = 0; i < n + 1; i++) 
-            {
-                if (i < position - 1)
-                {
-                    b[i] = a[i];
-                }
-                else if (i == position - 1)
-                {
-                    b[i] = newElement;
-                }
-                else
-                {
-                    b[i] = a[i - 1];
-                }
-            }
-
-            Console.Write("New array: ");
+            Console.WriteLine("New array: ");
             for (i = 0; i < n + 1; i++)
             {
-                Console.Write("{0} ", b[i]);
+                if (a[i] == 0)
+                {
+                    a[i] = newElement;
+                }
+                Console.Write($"{a[i]} ");   
             }
         }
 
