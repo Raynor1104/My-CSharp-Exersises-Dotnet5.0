@@ -25,7 +25,7 @@ namespace Exersise7_W3
                     case 1:
                         Console.WriteLine("\nEnter employee");
                         management.EnterEmployee();
-                        Console.WriteLine("New employee added.");
+                        Console.WriteLine("\nNew employee added.");
                         break;
                     case 2:
                         if (management.EmployeeAmount() > 0)
@@ -46,7 +46,7 @@ namespace Exersise7_W3
                         {
                             int id;
                             Console.WriteLine("\nEdit employee");
-                            Console.Write("Enter employee you want to edit by id");
+                            Console.Write("Enter employee you want to edit by id: ");
                             id = Convert.ToInt32(Console.ReadLine());
                             management.EditEmployee(id);
                         }

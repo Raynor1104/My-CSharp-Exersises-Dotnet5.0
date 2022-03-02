@@ -180,14 +180,14 @@ namespace Exersise7_W3
 
         public void ShowEmployeeList(List<Employee> Employee_List)
         {
-            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 5} {5, 10} {6, 5}",
+            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12}",
             "ID", "FirstName", "LastName", "Sex", "DOB", "Level", "Basicsalary");
 
             if (Employee_List != null && Employee_List.Count > 0)
             {
                 foreach (Employee employee in Employee_List)
                 {
-                    Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 9} {5, 10} {6, 5}", 
+                    Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9}", 
                     employee.Id, employee.FirstName, employee.LastName, employee.Sex, employee.DOB, employee.Level, employee.BasicSalary);
                 }
             }
