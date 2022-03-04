@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-#nullable enable
+
 namespace Exersise7_W3
 {
     class Management
@@ -71,74 +71,126 @@ namespace Exersise7_W3
             employee.BasicSalary = Convert.ToInt32(Console.ReadLine());
 
             GetDOB(employee);
+            GetFullName(employee);
+            GetSalary(employee);
 
             EmployeeList.Add(employee);
         }
 
+        public List<Employee> GetByID(int searchID)
+        {
+            List<Employee> searchResult = new List<Employee>();
+            if (EmployeeList != null && EmployeeList.Count > 0)
+            {
+                foreach (Employee employee in EmployeeList)
+                {
+                    if (employee.Id == searchID)
+                    {
+                        searchResult.Add(employee);
+                    }
+                }
+            }
+            return searchResult;
+        }
         public void EditEmployee(int id)
         {
-            Employee? emp = FindById(id);
-
-            if (emp != null)
+            Employee? employee = FindById(id);
+            if (employee != null)
             {
                 Console.Write("Enter First name to edit: ");
                 string? edit_firstName = Console.ReadLine();
                 if (edit_firstName != null && edit_firstName.Length > 0)
                 {
-                    emp.FirstName = edit_firstName;
+                    employee.FirstName = edit_firstName;
                 }
 
                 Console.Write("Enter Last name to edit: ");
                 string? edit_lastName = Console.ReadLine();
                 if (edit_lastName != null && edit_lastName.Length > 0)
                 {
-                    emp.LastName = edit_lastName;
+                    employee.LastName = edit_lastName;
                 }
 
                 Console.Write("Enter Sex to edit: ");
                 string? edit_sex = Console.ReadLine();
                 if (edit_sex != null && edit_sex.Length > 0)
                 {
-                    emp.Sex = edit_sex;
+                    employee.Sex = edit_sex;
                 }
 
                 Console.Write("Enter birth day to edit: ");
-                string? edit_birthDayStr = Console.ReadLine();
-                if (edit_birthDayStr != null && edit_birthDayStr.Length > 0)
+                string? edit_birthDay = Console.ReadLine();
+                if (edit_birthDay != null && edit_birthDay.Length > 0)
                 {
-                    emp.BirthDay = Convert.ToInt32(edit_birthDayStr);
+                    employee.BirthDay = Convert.ToInt32(edit_birthDay);
                 }
 
                 Console.Write("Enter birth month to edit: ");
-                string? edit_birthmonthStr = Console.ReadLine();
-                if (edit_birthmonthStr != null && edit_birthmonthStr.Length > 0)
+                string? edit_birthMonth = Console.ReadLine();
+                if (edit_birthMonth != null && edit_birthMonth.Length > 0)
                 {
-                    emp.BirthMonth = Convert.ToInt32(edit_birthmonthStr);
+                    employee.BirthMonth = Convert.ToInt32(edit_birthMonth);
                 }
 
                 Console.Write("Enter birth year to edit: ");
-                string? edit_birthYearStr = Console.ReadLine();
-                if (edit_birthYearStr != null && edit_birthYearStr.Length > 0)
+                string? edit_birthYear = Console.ReadLine();
+                if (edit_birthYear != null && edit_birthYear.Length > 0)
                 {
-                    emp.BirthYear = Convert.ToInt32(edit_birthYearStr);
+                    employee.BirthYear = Convert.ToInt32(edit_birthYear);
                 }
 
                 Console.Write("Enter level to edit: ");
-                string? edit_levelStr = Console.ReadLine();
-                if (edit_levelStr != null && edit_levelStr.Length > 0)
+                string? edit_level = Console.ReadLine();
+                if (edit_level != null && edit_level.Length > 0)
                 {
-                    emp.Level = Convert.ToInt32(edit_levelStr);
+                    employee.Level = Convert.ToInt32(edit_level);
                 }
 
                 Console.Write("Enter basic salary to edit: ");
-                string? edit_basicSalaryStr = Console.ReadLine();
-                if (edit_basicSalaryStr != null && edit_basicSalaryStr.Length > 0)
+                string? edit_basicSalary = Console.ReadLine();
+                if (edit_basicSalary != null && edit_basicSalary.Length > 0)
                 {
-                    emp.BasicSalary = Convert.ToInt32(edit_basicSalaryStr);
+                    employee.BasicSalary = Convert.ToInt32(edit_basicSalary);
                 }
 
-                GetDOB(emp);
+                GetDOB(employee);
+                GetFullName(employee);
+                GetSalary(employee);
             }
+        }
+
+        public bool RemoveById(int id)
+        {
+            bool isDeleted = false;
+            Employee? employee = FindById(id);
+            if (employee != null)
+            {
+                isDeleted = EmployeeList.Remove(employee);
+            }
+            return isDeleted;
+        }
+
+        public List<Employee> GetByFullName(string? fullName)
+        {
+            List<Employee> searchResult = new List<Employee>();
+            if (EmployeeList != null && EmployeeList.Count > 0)
+            {
+                foreach (Employee employee in EmployeeList)
+                {
+                    if (employee.FullName == fullName)
+                    {
+                        searchResult.Add(employee);
+                    }
+                }
+            }
+            return searchResult;
+        }
+
+        public void SoftBySalary()
+        {
+            EmployeeList.Sort(delegate (Employee employee1, Employee employee2) {
+                return employee1.Salary.CompareTo(employee2.Salary);
+            });
         }
 
         public Employee? FindById(int id)
@@ -162,33 +214,27 @@ namespace Exersise7_W3
             employee.DOB = $"{employee.BirthDay}/{employee.BirthMonth}/{employee.BirthYear}";
         }
 
-        public List<Employee> GetByID(int searchID)
+        private void GetFullName(Employee employee)
         {
-            List<Employee> searchResult = new List<Employee>();
+            employee.FullName = $"{employee.FirstName} {employee.LastName}";
+        }
+
+        private void GetSalary(Employee employee)
+        {
+            employee.Salary = employee.Level * employee.BasicSalary;
+        }
+
+        public void ShowEmployeeList(List<Employee> EmployeeList)
+        {
+            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12} {7, 9}",
+            "ID", "FirstName", "LastName", "Sex", "DOB", "Level", "Basicsalary", "Salary");
+
             if (EmployeeList != null && EmployeeList.Count > 0)
             {
                 foreach (Employee employee in EmployeeList)
                 {
-                    if (employee.Id == searchID)
-                    {
-                        searchResult.Add(employee);
-                    }
-                }
-            }
-            return searchResult;
-        }
-
-        public void ShowEmployeeList(List<Employee> Employee_List)
-        {
-            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12}",
-            "ID", "FirstName", "LastName", "Sex", "DOB", "Level", "Basicsalary");
-
-            if (Employee_List != null && Employee_List.Count > 0)
-            {
-                foreach (Employee employee in Employee_List)
-                {
-                    Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9}", 
-                    employee.Id, employee.FirstName, employee.LastName, employee.Sex, employee.DOB, employee.Level, employee.BasicSalary);
+                    Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15}", 
+                    employee.Id, employee.FirstName, employee.LastName, employee.Sex, employee.DOB, employee.Level, employee.BasicSalary, employee.Salary);
                 }
             }
         }

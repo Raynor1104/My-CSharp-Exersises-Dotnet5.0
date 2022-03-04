@@ -14,5 +14,7 @@ namespace Exersise7_W3
         public string? DOB { get; set; }
         public int Level { get; set; }
         public int BasicSalary { get; set; }
+        public int Salary { get; set; }
+        public string? FullName { get; set; }
     }
 }

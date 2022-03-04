@@ -9,14 +9,15 @@ namespace Exersise7_W3
         {
             Management management = new Management();
 
-            
-
             while (true)
             {
                 Console.WriteLine("\n1. Enter employee");
                 Console.WriteLine("2. Get employee by ID");
                 Console.WriteLine("3. Edit employee");
-                Console.WriteLine("4. Show employee list");
+                Console.WriteLine("4. Remove employee");
+                Console.WriteLine("5. Get employee by full name");
+                Console.WriteLine("6. Sort employee by salary");
+                Console.WriteLine("7. Show employee list");
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -56,6 +57,50 @@ namespace Exersise7_W3
                         }
                         break;
                     case 4:
+                        if (management.EmployeeAmount() > 0)
+                        {
+                            int id;
+                            Console.WriteLine("\nRemove employee");
+                            Console.Write("Enter an ID to remove: ");
+                            id = Convert.ToInt32(Console.ReadLine());
+                            if (management.RemoveById(id))
+                            {
+                                Console.WriteLine($"Employee {id} has been removed");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 5:
+                        if (management.EmployeeAmount() > 0)
+                        {
+                            string? fullName;
+                            Console.WriteLine("\nGet employee by full name");
+                            Console.Write("Enter a name: ");
+                            fullName = Console.ReadLine();
+                            List<Employee> searchresult = management.GetByFullName(fullName);
+                            management.ShowEmployeeList(searchresult);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 6:
+                        if (management.EmployeeAmount() > 0)
+                        {
+                            Console.WriteLine("\nSort employee by salary");
+                            management.SoftBySalary();
+                            management.ShowEmployeeList(management.GetEmployeeList());
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 7:
                         if (management.EmployeeAmount() > 0)
                         {
                             Console.WriteLine("\nShow employee list");
