@@ -92,70 +92,101 @@ namespace Exersise7_W3
             }
             return searchResult;
         }
+        
         public void EditEmployee(int id)
         {
-            Employee? employee = FindById(id);
-            if (employee != null)
+            Employee? emp = FindById(id);
+
+            if (emp != null)
             {
-                Console.Write("Enter First name to edit: ");
-                string? edit_firstName = Console.ReadLine();
-                if (edit_firstName != null && edit_firstName.Length > 0)
+                while(true)
                 {
-                    employee.FirstName = edit_firstName;
+                    Console.WriteLine("\n1. First name");
+                    Console.WriteLine("2. Last name");
+                    Console.WriteLine("3. Sex");
+                    Console.WriteLine("4. birth day");
+                    Console.WriteLine("5. birth month");
+                    Console.WriteLine("6. birth year");
+                    Console.WriteLine("7. birth level");
+                    Console.WriteLine("8. basic salary");
+                    Console.WriteLine("0. Exit");
+                    Console.Write("Choose an option to edit: ");
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch(option)
+                    {
+                        case 1:
+                            Console.Write("Enter First name to edit: ");
+                            string? edit_firstName = Console.ReadLine();
+                            if (edit_firstName != null && edit_firstName.Length > 0)
+                            {
+                                emp.FirstName = edit_firstName;
+                            }
+                            break;
+                        case 2:
+                            Console.Write("Enter Last name to edit: ");
+                            string? edit_lastName = Console.ReadLine();
+                            if (edit_lastName != null && edit_lastName.Length > 0)
+                            {
+                                emp.LastName = edit_lastName;
+                            }
+                            break;
+                        case 3:
+                            Console.Write("Enter Sex to edit: ");
+                            string? edit_sex = Console.ReadLine();
+                            if (edit_sex != null && edit_sex.Length > 0)
+                            {
+                                emp.Sex = edit_sex;
+                            }
+                            break;
+                        case 4:
+                            Console.Write("Enter birth day to edit: ");
+                            string? edit_birthDayStr = Console.ReadLine();
+                            if (edit_birthDayStr != null && edit_birthDayStr.Length > 0)
+                            {
+                                emp.BirthDay = Convert.ToInt32(edit_birthDayStr);
+                            }
+                            break;
+                        case 5:
+                            Console.Write("Enter birth month to edit: ");
+                            string? edit_birthmonthStr = Console.ReadLine();
+                            if (edit_birthmonthStr != null && edit_birthmonthStr.Length > 0)
+                            {
+                                emp.BirthMonth = Convert.ToInt32(edit_birthmonthStr);
+                            }
+                            break;
+                        case 6:
+                            Console.Write("Enter birth year to edit: ");
+                            string? edit_birthYearStr = Console.ReadLine();
+                            if (edit_birthYearStr != null && edit_birthYearStr.Length > 0)
+                            {
+                                emp.BirthYear = Convert.ToInt32(edit_birthYearStr);
+                            }
+                            break;
+                        case 7:
+                            Console.Write("Enter level to edit: ");
+                            string? edit_levelStr = Console.ReadLine();
+                            if (edit_levelStr != null && edit_levelStr.Length > 0)
+                            {
+                                emp.Level = Convert.ToInt32(edit_levelStr);
+                            }
+                            break;
+                        case 8:
+                            Console.Write("Enter basic salary to edit: ");
+                            string? edit_basicSalaryStr = Console.ReadLine();
+                            if (edit_basicSalaryStr != null && edit_basicSalaryStr.Length > 0)
+                            {
+                                emp.BasicSalary = Convert.ToInt32(edit_basicSalaryStr);
+                            }
+                            break;
+                        case 0:
+                            Console.WriteLine("Edit complete.");
+                            return;
+                        default:
+                            Console.WriteLine("Option not available");
+                            break;
+                    }
+                    GetDOB(emp);
                 }
-
-                Console.Write("Enter Last name to edit: ");
-                string? edit_lastName = Console.ReadLine();
-                if (edit_lastName != null && edit_lastName.Length > 0)
-                {
-                    employee.LastName = edit_lastName;
-                }
-
-                Console.Write("Enter Sex to edit: ");
-                string? edit_sex = Console.ReadLine();
-                if (edit_sex != null && edit_sex.Length > 0)
-                {
-                    employee.Sex = edit_sex;
-                }
-
-                Console.Write("Enter birth day to edit: ");
-                string? edit_birthDay = Console.ReadLine();
-                if (edit_birthDay != null && edit_birthDay.Length > 0)
-                {
-                    employee.BirthDay = Convert.ToInt32(edit_birthDay);
-                }
-
-                Console.Write("Enter birth month to edit: ");
-                string? edit_birthMonth = Console.ReadLine();
-                if (edit_birthMonth != null && edit_birthMonth.Length > 0)
-                {
-                    employee.BirthMonth = Convert.ToInt32(edit_birthMonth);
-                }
-
-                Console.Write("Enter birth year to edit: ");
-                string? edit_birthYear = Console.ReadLine();
-                if (edit_birthYear != null && edit_birthYear.Length > 0)
-                {
-                    employee.BirthYear = Convert.ToInt32(edit_birthYear);
-                }
-
-                Console.Write("Enter level to edit: ");
-                string? edit_level = Console.ReadLine();
-                if (edit_level != null && edit_level.Length > 0)
-                {
-                    employee.Level = Convert.ToInt32(edit_level);
-                }
-
-                Console.Write("Enter basic salary to edit: ");
-                string? edit_basicSalary = Console.ReadLine();
-                if (edit_basicSalary != null && edit_basicSalary.Length > 0)
-                {
-                    employee.BasicSalary = Convert.ToInt32(edit_basicSalary);
-                }
-
-                GetDOB(employee);
-                GetFullName(employee);
-                GetSalary(employee);
             }
         }
 

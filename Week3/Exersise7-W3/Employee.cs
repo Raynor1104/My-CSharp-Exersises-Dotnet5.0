@@ -4,10 +4,36 @@ namespace Exersise7_W3
 {
     class Employee
     {
-        public int Id { get; set;}
+        private int employeeId;
+        public int Id 
+        { 
+            get
+            {
+                return employeeId;
+            } 
+            set
+            {
+                employeeId = value;
+            }
+        }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        public string? Sex { get; set; }
+        private string? sex;
+        public string? Sex 
+        { 
+            get{ return sex; } 
+            set 
+            {
+                if (value == "male" || value == "female")
+                {
+                    sex = value;
+                }
+                else 
+                {
+                    sex = "unidentified";
+                }
+            } 
+        }
         public int BirthMonth { get; set; }
         public int BirthDay { get; set; }
         public int BirthYear { get; set; }
