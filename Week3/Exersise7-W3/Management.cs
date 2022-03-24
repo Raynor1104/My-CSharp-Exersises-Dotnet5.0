@@ -46,29 +46,7 @@ namespace Exersise7_W3
 
             employee.Id = GenerateID();
 
-            Console.Write("Enter first name: ");
-            employee.FirstName = Console.ReadLine();
-
-            Console.Write("Enter last name: ");
-            employee.LastName = Console.ReadLine();
-
-            Console.Write("Enter gender: ");
-            employee.Sex = Console.ReadLine();
-
-            Console.Write("Birth day: ");
-            employee.BirthDay = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Birth Month: ");
-            employee.BirthMonth = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Birth year: ");
-            employee.BirthYear = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Level: ");
-            employee.Level = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Basic salary: ");
-            employee.BasicSalary = Convert.ToInt32(Console.ReadLine());
+            employee.EnterEmployee();
 
             GetDOB(employee);
             GetFullName(employee);
@@ -264,8 +242,7 @@ namespace Exersise7_W3
             {
                 foreach (Employee employee in EmployeeList)
                 {
-                    Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15}", 
-                    employee.Id, employee.FirstName, employee.LastName, employee.Sex, employee.DOB, employee.Level, employee.BasicSalary, employee.Salary);
+                    employee.WriteInformation();
                 }
             }
         }

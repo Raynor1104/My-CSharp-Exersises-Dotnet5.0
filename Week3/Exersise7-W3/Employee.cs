@@ -66,5 +66,38 @@ namespace Exersise7_W3
             this.Level = level;
             this.BasicSalary = basicSalary;
         }
+
+        public void EnterEmployee()
+        {
+            Console.Write("Enter first name: ");
+            FirstName = Console.ReadLine();
+
+            Console.Write("Enter last name: ");
+            LastName = Console.ReadLine();
+
+            Console.Write("Enter gender: ");
+            Sex = Console.ReadLine();
+
+            Console.Write("Birth day: ");
+            BirthDay = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Birth Month: ");
+            BirthMonth = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Birth year: ");
+            BirthYear = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Level: ");
+            Level = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Basic salary: ");
+            BasicSalary = Convert.ToInt32(Console.ReadLine());
+        }
+
+        public void WriteInformation()
+        {   
+            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15}", 
+            Id, FirstName, LastName, Sex, DOB, Level, BasicSalary, Salary);
+        }
     }
 }
