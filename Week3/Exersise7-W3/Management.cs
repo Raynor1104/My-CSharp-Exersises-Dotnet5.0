@@ -73,9 +73,9 @@ namespace Exersise7_W3
         
         public void EditEmployee(int id)
         {
-            Employee? emp = FindById(id);
+            Employee? employee = FindById(id);
 
-            if (emp != null)
+            if (employee != null)
             {
                 while(true)
                 {
@@ -97,7 +97,7 @@ namespace Exersise7_W3
                             string? edit_firstName = Console.ReadLine();
                             if (edit_firstName != null && edit_firstName.Length > 0)
                             {
-                                emp.FirstName = edit_firstName;
+                                employee.FirstName = edit_firstName;
                             }
                             break;
                         case 2:
@@ -105,7 +105,7 @@ namespace Exersise7_W3
                             string? edit_lastName = Console.ReadLine();
                             if (edit_lastName != null && edit_lastName.Length > 0)
                             {
-                                emp.LastName = edit_lastName;
+                                employee.LastName = edit_lastName;
                             }
                             break;
                         case 3:
@@ -113,7 +113,7 @@ namespace Exersise7_W3
                             string? edit_sex = Console.ReadLine();
                             if (edit_sex != null && edit_sex.Length > 0)
                             {
-                                emp.Sex = edit_sex;
+                                employee.Sex = edit_sex;
                             }
                             break;
                         case 4:
@@ -121,7 +121,7 @@ namespace Exersise7_W3
                             string? edit_birthDayStr = Console.ReadLine();
                             if (edit_birthDayStr != null && edit_birthDayStr.Length > 0)
                             {
-                                emp.BirthDay = Convert.ToInt32(edit_birthDayStr);
+                                employee.BirthDay = Convert.ToInt32(edit_birthDayStr);
                             }
                             break;
                         case 5:
@@ -129,7 +129,7 @@ namespace Exersise7_W3
                             string? edit_birthmonthStr = Console.ReadLine();
                             if (edit_birthmonthStr != null && edit_birthmonthStr.Length > 0)
                             {
-                                emp.BirthMonth = Convert.ToInt32(edit_birthmonthStr);
+                                employee.BirthMonth = Convert.ToInt32(edit_birthmonthStr);
                             }
                             break;
                         case 6:
@@ -137,7 +137,7 @@ namespace Exersise7_W3
                             string? edit_birthYearStr = Console.ReadLine();
                             if (edit_birthYearStr != null && edit_birthYearStr.Length > 0)
                             {
-                                emp.BirthYear = Convert.ToInt32(edit_birthYearStr);
+                                employee.BirthYear = Convert.ToInt32(edit_birthYearStr);
                             }
                             break;
                         case 7:
@@ -145,7 +145,7 @@ namespace Exersise7_W3
                             string? edit_levelStr = Console.ReadLine();
                             if (edit_levelStr != null && edit_levelStr.Length > 0)
                             {
-                                emp.Level = Convert.ToInt32(edit_levelStr);
+                                employee.Level = Convert.ToInt32(edit_levelStr);
                             }
                             break;
                         case 8:
@@ -153,7 +153,7 @@ namespace Exersise7_W3
                             string? edit_basicSalaryStr = Console.ReadLine();
                             if (edit_basicSalaryStr != null && edit_basicSalaryStr.Length > 0)
                             {
-                                emp.BasicSalary = Convert.ToInt32(edit_basicSalaryStr);
+                                employee.BasicSalary = Convert.ToInt32(edit_basicSalaryStr);
                             }
                             break;
                         case 0:
@@ -163,7 +163,9 @@ namespace Exersise7_W3
                             Console.WriteLine("Option not available");
                             break;
                     }
-                    emp.GetDOB();
+                    employee.GetDOB();
+                    employee.GetFullName();
+                    employee.GetSalary();
                 }
             }
         }
