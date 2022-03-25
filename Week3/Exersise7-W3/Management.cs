@@ -48,9 +48,9 @@ namespace Exersise7_W3
 
             employee.EnterEmployee();
 
-            GetDOB(employee);
-            GetFullName(employee);
-            GetSalary(employee);
+            employee.GetDOB();
+            employee.GetFullName();
+            employee.GetSalary();
 
             EmployeeList.Add(employee);
         }
@@ -163,7 +163,7 @@ namespace Exersise7_W3
                             Console.WriteLine("Option not available");
                             break;
                     }
-                    GetDOB(emp);
+                    emp.GetDOB();
                 }
             }
         }
@@ -217,22 +217,6 @@ namespace Exersise7_W3
             }
             return searchResult;
         }
-
-        private void GetDOB(Employee employee)
-        {
-            employee.DOB = $"{employee.BirthDay}/{employee.BirthMonth}/{employee.BirthYear}";
-        }
-
-        private void GetFullName(Employee employee)
-        {
-            employee.FullName = $"{employee.FirstName} {employee.LastName}";
-        }
-
-        private void GetSalary(Employee employee)
-        {
-            employee.Salary = employee.Level * employee.BasicSalary;
-        }
-
         public void ShowEmployeeList(List<Employee> EmployeeList)
         {
             Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12} {7, 9}",

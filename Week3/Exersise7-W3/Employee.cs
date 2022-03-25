@@ -93,6 +93,20 @@ namespace Exersise7_W3
             Console.Write("Basic salary: ");
             BasicSalary = Convert.ToInt32(Console.ReadLine());
         }
+        public void GetFullName()
+        {
+            FullName = $"{FirstName} {LastName}";
+        }
+
+        public void GetSalary()
+        {
+            Salary = Level * BasicSalary;
+        }
+
+        public void GetDOB()
+        {
+            DOB = $"{BirthDay}/{BirthMonth}/{BirthYear}";
+        }
 
         public void WriteInformation()
         {   
