@@ -34,10 +34,8 @@ namespace Exersise7_W3
                 }
             } 
         }
-        public int BirthMonth { get; set; }
-        public int BirthDay { get; set; }
-        public int BirthYear { get; set; }
-        public string? DOB { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Age { get; set; }
         public int Level { get; set; }
         public int BasicSalary { get; set; }
         public int Salary { get; set; }
@@ -54,15 +52,14 @@ namespace Exersise7_W3
             this.Id = id;
         }
 
-        public Employee(int id, string? firstName, string? lastName, string? sex, int birthDay, int birthMonth, int birthYear, int level, int basicSalary) 
+        public Employee(int id, string? firstName, string? lastName, string? sex, DateTime dateOfBirth, int age, int level, int basicSalary) 
             : this(id)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Sex = sex;
-            this.BirthDay = birthDay;
-            this.BirthMonth = birthMonth;
-            this.BirthYear = birthYear;
+            this.DateOfBirth = dateOfBirth;
+            this.Age = age;
             this.Level = level;
             this.BasicSalary = basicSalary;
         }
@@ -78,14 +75,8 @@ namespace Exersise7_W3
             Console.Write("Enter gender: ");
             Sex = Console.ReadLine();
 
-            Console.Write("Birth day: ");
-            BirthDay = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("Birth Month: ");
-            BirthMonth = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("Birth year: ");
-            BirthYear = Convert.ToInt32(Console.ReadLine());
+            Console.Write("DOB in the format of YYYY-MM-DD: ");
+            DateOfBirth = Convert.ToDateTime(Console.ReadLine());
             
             Console.Write("Level: ");
             Level = Convert.ToInt32(Console.ReadLine());
@@ -103,15 +94,18 @@ namespace Exersise7_W3
             Salary = Level * BasicSalary;
         }
 
-        public void GetDOB()
+        public void GetAge()
         {
-            DOB = $"{BirthDay}/{BirthMonth}/{BirthYear}";
+            DateTime now = DateTime.Today;
+            Age = now.Year - DateOfBirth.Year;
+            if (now < DateOfBirth.AddYears(Age))
+            Age--;
         }
 
         public void WriteInformation()
         {   
             Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15}", 
-            Id, FirstName, LastName, Sex, DOB, Level, BasicSalary, Salary);
+            Id, FirstName, LastName, Sex, DateOfBirth.ToShortDateString(), Level, BasicSalary, Salary);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Exersise7_W3
 
             employee.EnterEmployee();
 
-            employee.GetDOB();
+            employee.GetAge();
             employee.GetFullName();
             employee.GetSalary();
 
@@ -82,11 +82,9 @@ namespace Exersise7_W3
                     Console.WriteLine("\n1. First name");
                     Console.WriteLine("2. Last name");
                     Console.WriteLine("3. Sex");
-                    Console.WriteLine("4. birth day");
-                    Console.WriteLine("5. birth month");
-                    Console.WriteLine("6. birth year");
-                    Console.WriteLine("7. birth level");
-                    Console.WriteLine("8. basic salary");
+                    Console.WriteLine("4. Date of birth");
+                    Console.WriteLine("5. birth level");
+                    Console.WriteLine("6. basic salary");
                     Console.WriteLine("0. Exit");
                     Console.Write("Choose an option to edit: ");
                     int option = Convert.ToInt32(Console.ReadLine());
@@ -117,30 +115,14 @@ namespace Exersise7_W3
                             }
                             break;
                         case 4:
-                            Console.Write("Enter birth day to edit: ");
-                            string? edit_birthDayStr = Console.ReadLine();
-                            if (edit_birthDayStr != null && edit_birthDayStr.Length > 0)
+                            Console.Write("Enter date of birth in the format of YYYY-MM-DD to edit: ");
+                            string? edit_dateOfBirth = Console.ReadLine();
+                            if (edit_dateOfBirth != null)
                             {
-                                employee.BirthDay = Convert.ToInt32(edit_birthDayStr);
+                                employee.DateOfBirth = Convert.ToDateTime(edit_dateOfBirth);
                             }
                             break;
                         case 5:
-                            Console.Write("Enter birth month to edit: ");
-                            string? edit_birthmonthStr = Console.ReadLine();
-                            if (edit_birthmonthStr != null && edit_birthmonthStr.Length > 0)
-                            {
-                                employee.BirthMonth = Convert.ToInt32(edit_birthmonthStr);
-                            }
-                            break;
-                        case 6:
-                            Console.Write("Enter birth year to edit: ");
-                            string? edit_birthYearStr = Console.ReadLine();
-                            if (edit_birthYearStr != null && edit_birthYearStr.Length > 0)
-                            {
-                                employee.BirthYear = Convert.ToInt32(edit_birthYearStr);
-                            }
-                            break;
-                        case 7:
                             Console.Write("Enter level to edit: ");
                             string? edit_levelStr = Console.ReadLine();
                             if (edit_levelStr != null && edit_levelStr.Length > 0)
@@ -148,7 +130,7 @@ namespace Exersise7_W3
                                 employee.Level = Convert.ToInt32(edit_levelStr);
                             }
                             break;
-                        case 8:
+                        case 6:
                             Console.Write("Enter basic salary to edit: ");
                             string? edit_basicSalaryStr = Console.ReadLine();
                             if (edit_basicSalaryStr != null && edit_basicSalaryStr.Length > 0)
@@ -163,7 +145,7 @@ namespace Exersise7_W3
                             Console.WriteLine("Option not available");
                             break;
                     }
-                    employee.GetDOB();
+                    employee.GetAge();
                     employee.GetFullName();
                     employee.GetSalary();
                 }
@@ -204,6 +186,32 @@ namespace Exersise7_W3
             });
         }
 
+        public void SoftByFullName()
+        {
+            EmployeeList.Sort(delegate (Employee employee1, Employee employee2) {
+                if (employee1.FullName == null && employee2.FullName == null) return 0;
+                else if (employee1.FullName == null) return -1;
+                else if (employee2.FullName == null) return 1;
+                else return employee1.FullName.CompareTo(employee2.FullName);
+            });
+        }
+
+        public List<Employee> OlderThan30()
+        {
+            List<Employee> result = new List<Employee>();
+            if (EmployeeList != null && EmployeeList.Count > 0)
+            {
+                foreach (Employee employee in EmployeeList)
+                {
+                    if (employee.Age >= 30)
+                    {
+                        result.Add(employee);
+                    }
+                }
+            }
+            return result;
+        }
+
         public Employee? FindById(int id)
         {
             Employee? searchResult = null;
@@ -219,6 +227,7 @@ namespace Exersise7_W3
             }
             return searchResult;
         }
+        
         public void ShowEmployeeList(List<Employee> EmployeeList)
         {
             Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12} {7, 9}",

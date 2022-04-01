@@ -17,7 +17,9 @@ namespace Exersise7_W3
                 Console.WriteLine("4. Remove employee");
                 Console.WriteLine("5. Get employee by full name");
                 Console.WriteLine("6. Sort employee by salary");
-                Console.WriteLine("7. Show employee list");
+                Console.WriteLine("7. Sort employee by Full name");
+                Console.WriteLine("8. Get employee older than 30");
+                Console.WriteLine("9. Show employee list");
                 Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -45,10 +47,9 @@ namespace Exersise7_W3
                     case 3:
                         if (management.EmployeeAmount() > 0)
                         {
-                            int id;
                             Console.WriteLine("\nEdit employee");
                             Console.Write("Enter employee you want to edit by id: ");
-                            id = Convert.ToInt32(Console.ReadLine());
+                            int id = Convert.ToInt32(Console.ReadLine());
                             management.EditEmployee(id);
                         }
                         else 
@@ -59,10 +60,9 @@ namespace Exersise7_W3
                     case 4:
                         if (management.EmployeeAmount() > 0)
                         {
-                            int id;
                             Console.WriteLine("\nRemove employee");
                             Console.Write("Enter an ID to remove: ");
-                            id = Convert.ToInt32(Console.ReadLine());
+                            int id = Convert.ToInt32(Console.ReadLine());
                             if (management.RemoveById(id))
                             {
                                 Console.WriteLine($"Employee {id} has been removed");
@@ -76,12 +76,11 @@ namespace Exersise7_W3
                     case 5:
                         if (management.EmployeeAmount() > 0)
                         {
-                            string? fullName;
                             Console.WriteLine("\nGet employee by full name");
                             Console.Write("Enter a name: ");
-                            fullName = Console.ReadLine();
-                            List<Employee> searchresult = management.GetByFullName(fullName);
-                            management.ShowEmployeeList(searchresult);
+                            string? fullName = Console.ReadLine();
+                            List<Employee> searchResult = management.GetByFullName(fullName);
+                            management.ShowEmployeeList(searchResult);
                         }
                         else
                         {
@@ -101,6 +100,30 @@ namespace Exersise7_W3
                         }
                         break;
                     case 7:
+                        if (management.EmployeeAmount() > 0)
+                        {
+                            Console.WriteLine("\nSort employee by first name");
+                            management.SoftByFullName();
+                            management.ShowEmployeeList(management.GetEmployeeList());   
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 8:
+                        if (management.EmployeeAmount() > 0)
+                        {
+                            Console.WriteLine("\nGet employee older than 30");
+                            List<Employee> olderThan30 = management.OlderThan30();
+                            management.ShowEmployeeList(olderThan30);
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 9:
                         if (management.EmployeeAmount() > 0)
                         {
                             Console.WriteLine("\nShow employee list");
