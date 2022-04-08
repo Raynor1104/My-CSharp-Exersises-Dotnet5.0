@@ -48,32 +48,28 @@ namespace Exersise7_W3
 
             employee.EnterEmployee();
 
-            employee.GetAge();
-            employee.GetFullName();
-            employee.GetSalary();
-
             EmployeeList.Add(employee);
         }
-
-        public List<Employee> GetByID(int searchID)
+        
+        public Employee FindById(int id)
         {
-            List<Employee> searchResult = new List<Employee>();
+            Employee searchResult = new Employee();
             if (EmployeeList != null && EmployeeList.Count > 0)
             {
                 foreach (Employee employee in EmployeeList)
                 {
-                    if (employee.Id == searchID)
+                    if (employee.Id == id)
                     {
-                        searchResult.Add(employee);
+                        searchResult = employee;
                     }
                 }
             }
             return searchResult;
         }
-        
+
         public void EditEmployee(int id)
         {
-            Employee? employee = FindById(id);
+            Employee employee = FindById(id);
 
             if (employee != null)
             {
@@ -83,8 +79,8 @@ namespace Exersise7_W3
                     Console.WriteLine("2. Last name");
                     Console.WriteLine("3. Sex");
                     Console.WriteLine("4. Date of birth");
-                    Console.WriteLine("5. birth level");
-                    Console.WriteLine("6. basic salary");
+                    Console.WriteLine("5. Level");
+                    Console.WriteLine("6. Basic salary");
                     Console.WriteLine("0. Exit");
                     Console.Write("Choose an option to edit: ");
                     int option = Convert.ToInt32(Console.ReadLine());
@@ -93,7 +89,7 @@ namespace Exersise7_W3
                         case 1:
                             Console.Write("Enter First name to edit: ");
                             string? edit_firstName = Console.ReadLine();
-                            if (edit_firstName != null && edit_firstName.Length > 0)
+                            if (edit_firstName != null)
                             {
                                 employee.FirstName = edit_firstName;
                             }
@@ -101,7 +97,7 @@ namespace Exersise7_W3
                         case 2:
                             Console.Write("Enter Last name to edit: ");
                             string? edit_lastName = Console.ReadLine();
-                            if (edit_lastName != null && edit_lastName.Length > 0)
+                            if (edit_lastName != null)
                             {
                                 employee.LastName = edit_lastName;
                             }
@@ -109,7 +105,7 @@ namespace Exersise7_W3
                         case 3:
                             Console.Write("Enter Sex to edit: ");
                             string? edit_sex = Console.ReadLine();
-                            if (edit_sex != null && edit_sex.Length > 0)
+                            if (edit_sex != null)
                             {
                                 employee.Sex = edit_sex;
                             }
@@ -125,7 +121,7 @@ namespace Exersise7_W3
                         case 5:
                             Console.Write("Enter level to edit: ");
                             string? edit_levelStr = Console.ReadLine();
-                            if (edit_levelStr != null && edit_levelStr.Length > 0)
+                            if (edit_levelStr != null)
                             {
                                 employee.Level = Convert.ToInt32(edit_levelStr);
                             }
@@ -133,21 +129,18 @@ namespace Exersise7_W3
                         case 6:
                             Console.Write("Enter basic salary to edit: ");
                             string? edit_basicSalaryStr = Console.ReadLine();
-                            if (edit_basicSalaryStr != null && edit_basicSalaryStr.Length > 0)
+                            if (edit_basicSalaryStr != null)
                             {
                                 employee.BasicSalary = Convert.ToInt32(edit_basicSalaryStr);
                             }
                             break;
                         case 0:
-                            Console.WriteLine("Edit complete.");
+                            Console.WriteLine("Edition complete.");
                             return;
                         default:
                             Console.WriteLine("Option not available");
                             break;
                     }
-                    employee.GetAge();
-                    employee.GetFullName();
-                    employee.GetSalary();
                 }
             }
         }
@@ -163,16 +156,16 @@ namespace Exersise7_W3
             return isDeleted;
         }
 
-        public List<Employee> GetByFullName(string? fullName)
+        public Employee GetByFullName(string? fullName)
         {
-            List<Employee> searchResult = new List<Employee>();
+            Employee searchResult = new Employee();
             if (EmployeeList != null && EmployeeList.Count > 0)
             {
                 foreach (Employee employee in EmployeeList)
                 {
                     if (employee.FullName == fullName)
                     {
-                        searchResult.Add(employee);
+                        searchResult = employee;
                     }
                 }
             }
@@ -196,42 +189,26 @@ namespace Exersise7_W3
             });
         }
 
-        public List<Employee> OlderThan30()
+        public Employee OlderThan30()
         {
-            List<Employee> result = new List<Employee>();
+            Employee result = new Employee();
             if (EmployeeList != null && EmployeeList.Count > 0)
             {
                 foreach (Employee employee in EmployeeList)
                 {
                     if (employee.Age >= 30)
                     {
-                        result.Add(employee);
+                        result = employee;
                     }
                 }
             }
             return result;
         }
 
-        public Employee? FindById(int id)
-        {
-            Employee? searchResult = null;
-            if (EmployeeList != null && EmployeeList.Count > 0)
-            {
-                foreach (Employee employee in EmployeeList)
-                {
-                    if (employee.Id == id)
-                    {
-                        searchResult = employee;
-                    }
-                }
-            }
-            return searchResult;
-        }
-        
         public void ShowEmployeeList(List<Employee> EmployeeList)
         {
-            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12} {7, 9}",
-            "ID", "FirstName", "LastName", "Sex", "DOB", "Level", "Basicsalary", "Salary");
+            Console.WriteLine("{0, -5} {1, 10} {2, 10} {3, 5} {4, 7} {5, 12} {6, 12} {7, 9} {8, 12}",
+            "ID", "FirstName", "LastName", "Sex", "DOB", "Level", "Basicsalary", "Salary", "Age");
 
             if (EmployeeList != null && EmployeeList.Count > 0)
             {

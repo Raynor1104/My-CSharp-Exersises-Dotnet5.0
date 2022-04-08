@@ -36,8 +36,8 @@ namespace Exersise7_W3
                             Console.WriteLine("\nGet employee by ID");
                             Console.Write("Enter an id: ");
                             int search_ID = Convert.ToInt32(Console.ReadLine());
-                            List<Employee> searchResult = management.GetByID(search_ID);
-                            management.ShowEmployeeList(searchResult);
+                            Employee searchResult = management.FindById(search_ID);
+                            management.ShowEmployeeList(management.GetEmployeeList());
                         }
                         else
                         {
@@ -79,8 +79,8 @@ namespace Exersise7_W3
                             Console.WriteLine("\nGet employee by full name");
                             Console.Write("Enter a name: ");
                             string? fullName = Console.ReadLine();
-                            List<Employee> searchResult = management.GetByFullName(fullName);
-                            management.ShowEmployeeList(searchResult);
+                            Employee searchResult = management.GetByFullName(fullName);
+                            management.ShowEmployeeList(management.GetEmployeeList());
                         }
                         else
                         {
@@ -102,7 +102,7 @@ namespace Exersise7_W3
                     case 7:
                         if (management.EmployeeAmount() > 0)
                         {
-                            Console.WriteLine("\nSort employee by first name");
+                            Console.WriteLine("\nSort employee by full name");
                             management.SoftByFullName();
                             management.ShowEmployeeList(management.GetEmployeeList());   
                         }
@@ -115,8 +115,8 @@ namespace Exersise7_W3
                         if (management.EmployeeAmount() > 0)
                         {
                             Console.WriteLine("\nGet employee older than 30");
-                            List<Employee> olderThan30 = management.OlderThan30();
-                            management.ShowEmployeeList(olderThan30);
+                            Employee olderThan30 = management.OlderThan30();
+                            management.ShowEmployeeList(management.GetEmployeeList());
                         }
                         else
                         {

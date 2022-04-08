@@ -5,6 +5,9 @@ namespace Exersise7_W3
     class Employee
     {
         private int employeeId;
+        private string? sex;
+        private int age;
+
         public int Id 
         { 
             get
@@ -18,7 +21,7 @@ namespace Exersise7_W3
         }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
-        private string? sex;
+        public string? FullName => $"{FirstName} {LastName}";
         public string? Sex 
         { 
             get{ return sex; } 
@@ -35,15 +38,23 @@ namespace Exersise7_W3
             } 
         }
         public DateTime DateOfBirth { get; set; }
-        public int Age { get; set; }
+        public int Age 
+        { 
+            get { return DateTime.Today.Year - DateOfBirth.Year; } 
+            set 
+            {
+                DateTime now = DateTime.Today;
+                if (now.Year < DateOfBirth.Year)
+                age = value--;
+            } 
+        }
         public int Level { get; set; }
         public int BasicSalary { get; set; }
-        public int Salary { get; set; }
-        public string? FullName { get; set; }
+        public int Salary => Level * BasicSalary;
 
         public Employee()
         {
-        
+            
         }
         
         public Employee(int id) 
@@ -84,28 +95,11 @@ namespace Exersise7_W3
             Console.Write("Basic salary: ");
             BasicSalary = Convert.ToInt32(Console.ReadLine());
         }
-        public void GetFullName()
-        {
-            FullName = $"{FirstName} {LastName}";
-        }
-
-        public void GetSalary()
-        {
-            Salary = Level * BasicSalary;
-        }
-
-        public void GetAge()
-        {
-            DateTime now = DateTime.Today;
-            Age = now.Year - DateOfBirth.Year;
-            if (now < DateOfBirth.AddYears(Age))
-            Age--;
-        }
-
+        
         public void WriteInformation()
         {   
-            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15}", 
-            Id, FirstName, LastName, Sex, DateOfBirth.ToShortDateString(), Level, BasicSalary, Salary);
+            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} {4, 11} {5, 4} {6, 9} {7, 15} {8, 9}", 
+            Id, FirstName, LastName, Sex, DateOfBirth.ToShortDateString(), Level, BasicSalary, Salary, Age);
         }
     }
 }
