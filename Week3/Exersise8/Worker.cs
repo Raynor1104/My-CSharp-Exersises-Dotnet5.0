@@ -25,7 +25,8 @@ namespace Exersise8
 
         public override void EnterStaff()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
+            Name, Age, Gender, Level);
         }
     }
 }
