@@ -34,14 +34,5 @@ namespace Exersise8
             Console.WriteLine("{0, -5} {1, 5} {2, 10}", 
             Name, Age, Gender);
         }
-
-        // public void EnterStaff()
-        // {
-        //     Name = Console.ReadLine();
-        //     Age = Convert.ToInt32(Console.ReadLine());
-        //     Gender = Console.ReadLine();
-
-        //     Officer officer = new Officer(name: Name, age: Age, gender = Gender);
-        // }
     }
 }
