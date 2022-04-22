@@ -10,8 +10,9 @@ namespace Exersise8
             while (true)
             {
                 Console.WriteLine("1. Add new staff");
-                Console.WriteLine("2. Display officer list");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("2. Search by name");
+                Console.WriteLine("3. Display officer list");
+                Console.WriteLine("0. Exit");
                 Console.Write("Choose an option: ");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -24,6 +25,20 @@ namespace Exersise8
                     case 2:
                         if (management.OfficerAmount() > 0)
                         {
+                            Console.WriteLine("Search by name");
+                            Console.Write("Enter name: ");
+                            string? searchName = Console.ReadLine();
+                            management.SearchByName(searchName);
+                            management.DisplayList(management.GetOfficerList());
+                        }
+                        else
+                        {
+                            Console.WriteLine("The list is empty.");
+                        }
+                        break;
+                    case 3:
+                        if (management.OfficerAmount() > 0)
+                        {
                             Console.WriteLine("Display officer list");
                             management.DisplayList(management.GetOfficerList());
                         }
@@ -31,6 +46,12 @@ namespace Exersise8
                         {
                             Console.WriteLine("The list is empty.");
                         }
+                        break;
+                    case 0:
+                        Console.WriteLine("Good bye!");
+                        return;
+                    default:
+                        Console.WriteLine("Option not available");
                         break;
                 }
             }

@@ -23,54 +23,76 @@ namespace Exersise8
 
         public void AddNewStaff()
         {
-            while (true)
+            Console.Write("Enter name: ");
+            string? nameEnter = Console.ReadLine();
+
+            Console.Write("Enter age: ");
+            int ageEnter = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter gender: ");
+            string? genderEnter = Console.ReadLine();
+
+            Console.WriteLine("1. Employee");
+            Console.WriteLine("2. Engineer");
+            Console.WriteLine("3. Worker");
+            Console.Write("Choose a role: ");
+            int role = Convert.ToInt32(Console.ReadLine());
+            switch (role)
             {
-                Console.WriteLine("1. Employee");
-                Console.WriteLine("2. Engineer");
-                Console.WriteLine("3. Worker");
-                Console.WriteLine("4. Exit");
-                Console.Write("Choose a role: ");
-                int role = Convert.ToInt32(Console.ReadLine());
-                switch (role)
+                case 1:
+                    Console.Write("Enter task: ");
+                    string? taskEnter = Console.ReadLine();
+                    Employee employee = new(
+                        name: nameEnter, 
+                        age: ageEnter, 
+                        gender: genderEnter, 
+                        task: taskEnter
+                    );
+                    OfficerList.Add(employee);
+                    break;
+                case 2:
+                    Console.Write("Enter training industry: ");
+                    string? trainingIndustryEnter = Console.ReadLine();
+                    Engineer engineer = new(
+                        name: nameEnter, 
+                        age: ageEnter, 
+                        gender: genderEnter, 
+                        trainingIndustry: trainingIndustryEnter
+                    );
+                    OfficerList.Add(engineer);
+                    break;
+                case 3:
+                    Console.Write("Enter level: ");
+                    int levelEnter = Convert.ToInt32(Console.ReadLine());
+                    Worker worker = new(
+                        name: nameEnter, 
+                        age: ageEnter, 
+                        gender: genderEnter, 
+                        level: levelEnter
+                    );
+                    OfficerList.Add(worker);
+                    break;
+            }
+        }
+
+        public void SearchByName(string? name)
+        {
+            Officer? searchResult = null;
+            if (OfficerList != null && OfficerList.Count > 0)
+            {
+                foreach (Officer officer in OfficerList)
                 {
-                    case 1:
-                        Employee employee = new(
-                            name: Console.ReadLine(), 
-                            age: Convert.ToInt32(Console.ReadLine()), 
-                            gender: Console.ReadLine(), 
-                            task: Console.ReadLine()
-                        );
-                        OfficerList.Add(employee);
-                        break;
-                    case 2:
-                        Engineer engineer = new(
-                            name: Console.ReadLine(), 
-                            age: Convert.ToInt32(Console.ReadLine()), 
-                            gender: Console.ReadLine(),
-                            trainingIndustry: Console.ReadLine()  
-                        );
-                        OfficerList.Add(engineer);
-                        break;
-                    case 3:
-                        Worker worker = new(
-                            name: Console.ReadLine(), 
-                            age: Convert.ToInt32(Console.ReadLine()), 
-                            gender: Console.ReadLine(),
-                            level: Convert.ToInt32(Console.ReadLine())
-                        );
-                        break;
-                    case 4:
-                        return;
-                    default:
-                        Console.WriteLine("Role not available");
-                        break;
+                    if (name == officer.Name)
+                    {
+                        searchResult = officer;
+                    }
                 }
             }
         }
 
         public void DisplayList(List<Officer> OfficerList)
         {
-            Console.WriteLine("{0, -5} {1, 5} {2, 7} {3, 10}",
+            Console.WriteLine("{0, -5} {1, 5} {2, 7} {3, 15}",
             "Name", "Age", "Gender", "Task/Level/TrainingIndustry");
                         
             if (OfficerList != null && OfficerList.Count > 0)
@@ -88,3 +110,47 @@ namespace Exersise8
         }  
     }
 }
+
+// while (true)
+//             {
+//                 Console.WriteLine("1. Employee");
+//                 Console.WriteLine("2. Engineer");
+//                 Console.WriteLine("3. Worker");
+//                 Console.WriteLine("4. Exit");
+//                 Console.Write("Choose a role: ");
+//                 int role = Convert.ToInt32(Console.ReadLine());
+//                 switch (role)
+//                 {
+//                     case 1:
+//                         Employee employee = new(
+//                             name: Console.ReadLine(), 
+//                             age: Convert.ToInt32(Console.ReadLine()), 
+//                             gender: Console.ReadLine(), 
+//                             task: Console.ReadLine()
+//                         );
+//                         OfficerList.Add(employee);
+//                         break;
+//                     case 2:
+//                         Engineer engineer = new(
+//                             name: Console.ReadLine(), 
+//                             age: Convert.ToInt32(Console.ReadLine()), 
+//                             gender: Console.ReadLine(),
+//                             trainingIndustry: Console.ReadLine()  
+//                         );
+//                         OfficerList.Add(engineer);
+//                         break;
+//                     case 3:
+//                         Worker worker = new(
+//                             name: Console.ReadLine(), 
+//                             age: Convert.ToInt32(Console.ReadLine()), 
+//                             gender: Console.ReadLine(),
+//                             level: Convert.ToInt32(Console.ReadLine())
+//                         );
+//                         break;
+//                     case 4:
+//                         return;
+//                     default:
+//                         Console.WriteLine("Role not available");
+//                         break;
+//                 }
+//             }
