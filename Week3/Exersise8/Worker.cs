@@ -17,16 +17,13 @@ namespace Exersise8
         }
         public Worker(string? name, int age, string? gender, int level) : base(name, age, gender)
         {
-            Name = name;
-            Age = age;
-            Gender = gender;
             Level = level;
         }
 
         public override void EnterStaff()
         {
             Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
-            Name, Age, Gender, Level);
+            Name, Age, Gender, $"Level: {Level}");
         }
     }
 }

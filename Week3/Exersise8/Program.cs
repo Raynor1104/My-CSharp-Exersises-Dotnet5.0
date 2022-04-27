@@ -49,7 +49,8 @@ namespace Exersise8
                         break;
                     case 0:
                         Console.WriteLine("Good bye!");
-                        return;
+                        management.ExitProgram();
+                        break;
                     default:
                         Console.WriteLine("Option not available");
                         break;

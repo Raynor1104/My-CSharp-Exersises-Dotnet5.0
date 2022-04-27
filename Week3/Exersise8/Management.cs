@@ -107,6 +107,11 @@ namespace Exersise8
         public List<Officer> GetOfficerList()
         {
             return OfficerList;
+        }
+
+        public void ExitProgram()
+        {
+            Environment.Exit(0);
         }  
     }
 }

@@ -12,16 +12,13 @@ namespace Exersise8
 
         public Engineer(string? name, int age, string? gender, string? trainingIndustry) : base(name, age, gender)
         {
-            Name = name;
-            Age = age;
-            Gender = gender;
             TrainingIndustry = trainingIndustry;
         }
 
         public override void EnterStaff()
         {
             Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
-            Name, Age, Gender, TrainingIndustry);
+            Name, Age, Gender, $"TrainingIndustry: {TrainingIndustry}");
         }
     }
 }

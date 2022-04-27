@@ -18,11 +18,7 @@ namespace Exersise8
             } 
         }
 
-        public Officer()
-        {
-
-        }
-        public Officer(string? name, int age, string? gender) : this()
+        public Officer(string? name, int age, string? gender)
         {
             Name = name;
             Age = age;
