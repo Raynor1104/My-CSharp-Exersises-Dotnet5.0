@@ -17,8 +17,10 @@ namespace Exersise8
 
         public override void EnterStaff()
         {
-            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
-            Name, Age, Gender, $"TrainingIndustry: {TrainingIndustry}");
+            base.EnterStaff();
+            Console.WriteLine($"Training industry: {TrainingIndustry}");
+            // Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
+            // Name, Age, Gender, $"TrainingIndustry: {TrainingIndustry}");
         }
     }
 }

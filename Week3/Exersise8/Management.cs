@@ -92,8 +92,8 @@ namespace Exersise8
 
         public void DisplayList(List<Officer> OfficerList)
         {
-            Console.WriteLine("{0, -5} {1, 5} {2, 7} {3, 15}",
-            "Name", "Age", "Gender", "Task/Level/TrainingIndustry");
+            // Console.WriteLine("{0, -5} {1, 5} {2, 7} {3, 15}",
+            // "Name", "Age", "Gender", "Task/Level/TrainingIndustry");
                         
             if (OfficerList != null && OfficerList.Count > 0)
             {

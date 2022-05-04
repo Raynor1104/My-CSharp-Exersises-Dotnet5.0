@@ -27,8 +27,9 @@ namespace Exersise8
 
         public virtual void EnterStaff()
         {
-            Console.WriteLine("{0, -5} {1, 5} {2, 10}", 
-            Name, Age, Gender);
+            // Console.WriteLine("{0, -5} {1, 5} {2, 10}", 
+            // Name, Age, Gender);
+            Console.Write($"Name: {Name}, Age: {Age}, Gender: {Gender}, ");
         }
     }
 }

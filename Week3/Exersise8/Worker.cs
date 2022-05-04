@@ -22,8 +22,10 @@ namespace Exersise8
 
         public override void EnterStaff()
         {
-            Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
-            Name, Age, Gender, $"Level: {Level}");
+            base.EnterStaff();
+            Console.WriteLine($"Level: {Level}");
+            // Console.WriteLine("{0, -5} {1, 5} {2, 10} {3, 11} ", 
+            // Name, Age, Gender, $"Level: {Level}");
         }
     }
 }
